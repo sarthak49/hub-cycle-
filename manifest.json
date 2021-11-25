@@ -1,0 +1,32 @@
+{
+  "name": "Mute spotify while Ads",
+  "description": "This extention mutes spotify tab when there is an AD starts!",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["activeTab","tabs","storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "js": ["mute.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/images/spotify-16.png",
+      "32": "/images/spotify-32.png",
+      "48": "/images/spotify-48.png",
+      "128": "/images/spotify-128.png"
+    }
+  },
+  "icons": {
+    "16": "/images/spotify-16.png",
+    "32": "/images/spotify-32.png",
+    "48": "/images/spotify-48.png",
+    "128": "/images/spotify-128.png"
+  },
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com/ga.js https://www.google-analytics.com/ga.js https://www.google-analytics.com/analytics.js; object-src 'self'"
+}
